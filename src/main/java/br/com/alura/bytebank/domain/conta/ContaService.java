@@ -14,7 +14,7 @@ import java.util.Set;
 public class ContaService {
     private ConnectionFactory connection;
 
-    ContaService(){
+    public ContaService(){
         this.connection = new ConnectionFactory();
     }
     private Set<Conta> contas = new HashSet<>();
@@ -35,7 +35,7 @@ public class ContaService {
             throw new RegraDeNegocioException("Já existe outra conta aberta com o mesmo número!");
         }
 
-        String sql = "INSERT INTO conta (numero, saldo, cliente_nome, cliente_cpf, cliente_email"
+        String sql = "INSERT INTO conta (numero, saldo, cliente_nome, cliente_cpf, cliente_email)"
                 +"VALUES (?, ?, ?, ?, ?)";
        Connection conn = connection.recuperarConexao();
        try{
